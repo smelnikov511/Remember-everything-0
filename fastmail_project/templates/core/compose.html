@@ -1,0 +1,76 @@
+{% extends "core/base.html" %}
+
+{% block title %}Написать письмо - FastMail{% endblock %}
+
+{% block content %}
+<div class="compose-container">
+    <div class="compose-header">
+        <h1>Написать письмо</h1>
+        <a href="/inbox/" class="btn btn-secondary">Отмена</a>
+    </div>
+    <form id="composeForm" class="compose-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="recipient">Получатель</label>
+            <input type="email" id="recipient" name="recipient" required placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+            <label for="subject">Тема</label>
+            <input type="text" id="subject" name="subject" required maxlength="255">
+        </div>
+        <div class="form-group">
+            <label for="body">Сообщение</label>
+            <textarea id="body" name="body" rows="15" required></textarea>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Отправить</button>
+            <button type="button" id="saveDraft" class="btn btn-secondary">Сохранить в черновики</button>
+        </div>
+    </form>
+    <div id="successMsg" class="success-msg" style="display: none;">Письмо отправлено!</div>
+    <div id="errorMsg" class="error-msg" style="display: none;"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('composeForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
+    
+    const recipient = document.getElementById('recipient').value;
+    const subject = document.getElementById('subject').value;
+    const body = document.getElementById('body').value;
+    
+    try {
+        const response = await fetch('/api/emails/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            },
+            body: JSON.stringify({ recipient, subject, body })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+            successMsg.style.display = 'block';
+            setTimeout(() => {
+                window.location.href = '/sent/';
+            }, 1000);
+        } else {
+            errorMsg.textContent = data.error || 'Ошибка отправки';
+            errorMsg.style.display = 'block';
+        }
+    } catch (error) {
+        errorMsg.textContent = 'Ошибка соединения';
+        errorMsg.style.display = 'block';
+    }
+});
+</script>
+{% endblock %}

@@ -3,11 +3,11 @@ from .models import Email, Folder
 
 class EmailSerializer(serializers.ModelSerializer):
     folder_name = serializers.CharField(source='folder.name', read_only=True)
-    
+
     class Meta:
         model = Email
         fields = [
-            'id', 'sender', 'recipient', 'subject', 'body', 
+            'id', 'sender', 'recipient', 'subject', 'body',
             'is_read', 'folder_name', 'created_at', 'is_deleted'
         ]
         read_only_fields = ['id', 'sender', 'is_deleted', 'created_at', 'folder_name']
@@ -19,3 +19,8 @@ class SendEmailSerializer(serializers.Serializer):
 
 class MoveEmailSerializer(serializers.Serializer):
     folder_name = serializers.CharField(max_length=50)
+
+class RegisterSerializer(serializers.Serializer):
+    username = serializers.CharField(max_length=150)
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True, min_length=8)

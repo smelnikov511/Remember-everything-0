@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FastMail{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="/static/core/css/style.css">
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/">FastMail</a>
+            </div>
+            <nav class="nav">
+                <a href="/inbox/" class="nav-link {% block active_inbox %}{% endblock %}">Входящие</a>
+                <a href="/sent/" class="nav-link {% block active_sent %}{% endblock %}">Отправленные</a>
+                <a href="/archive/" class="nav-link {% block active_archive %}{% endblock %}">Архив</a>
+                <a href="/trash/" class="nav-link {% block active_trash %}{% endblock %}">Корзина</a>
+            </nav>
+            <div class="user-menu">
+                <span class="username">{{ user.username }}</span>
+                <button id="logoutBtn" class="btn-logout">Выйти</button>
+            </div>
+        </div>
+    </header>
+    {% endif %}
+    
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="/static/core/js/app.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

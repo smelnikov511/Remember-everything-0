@@ -1,0 +1,142 @@
+{% extends "core/base.html" %}
+
+{% block title %}Письмо - FastMail{% endblock %}
+
+{% block content %}
+<div class="email-detail-container">
+    <div class="email-detail-header">
+        <a href="javascript:history.back()" class="btn btn-secondary">← Назад</a>
+        <div class="email-actions">
+            <button id="archiveBtn" class="btn btn-secondary">В архив</button>
+            <button id="trashBtn" class="btn btn-danger">В корзину</button>
+        </div>
+    </div>
+    
+    <div id="emailContent" class="email-content">
+        <div class="loading">Загрузка...</div>
+    </div>
+    
+    <div id="errorMsg" class="error-msg" style="display: none;"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const EMAIL_ID = {{ email_id }};
+
+async function loadEmail() {
+    try {
+        const response = await fetch(`/api/emails/${EMAIL_ID}/`);
+        
+        if (response.status === 404) {
+            document.getElementById('emailContent').innerHTML = '<div class="empty">Письмо не найдено</div>';
+            return;
+        }
+        
+        if (response.status === 401) {
+            window.location.href = '/login/';
+            return;
+        }
+        
+        if (!response.ok) {
+            throw new Error('Ошибка загрузки');
+        }
+        
+        const email = await response.json();
+        renderEmail(email);
+    } catch (error) {
+        document.getElementById('emailContent').innerHTML = '<div class="empty">Ошибка загрузки</div>';
+    }
+}
+
+function renderEmail(email) {
+    const container = document.getElementById('emailContent');
+    container.innerHTML = `
+        <div class="email-header">
+            <h2 class="email-subject">${escapeHtml(email.subject)}</h2>
+            <div class="email-meta">
+                <div class="meta-row">
+                    <span class="meta-label">От:</span>
+                    <span class="meta-value">${escapeHtml(email.sender)}</span>
+                </div>
+                <div class="meta-row">
+                    <span class="meta-label">Кому:</span>
+                    <span class="meta-value">${escapeHtml(email.recipient)}</span>
+                </div>
+                <div class="meta-row">
+                    <span class="meta-label">Дата:</span>
+                    <span class="meta-value">${formatDate(email.created_at)}</span>
+                </div>
+                <div class="meta-row">
+                    <span class="meta-label">Статус:</span>
+                    <span class="meta-value">${email.is_read ? '✓ Прочитано' : '○ Не прочитано'}</span>
+                </div>
+            </div>
+        </div>
+        <div class="email-body">
+            ${escapeHtml(email.body).replace(/\n/g, '<br>')}
+        </div>
+    `;
+    
+    // Обработчики кнопок
+    document.getElementById('archiveBtn').addEventListener('click', () => moveEmail('Archive'));
+    document.getElementById('trashBtn').addEventListener('click', () => moveEmail('Trash'));
+}
+
+async function moveEmail(folderName) {
+    try {
+        const response = await fetch(`/api/emails/${EMAIL_ID}/move/`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]')?.value || getCookie('csrftoken')
+            },
+            body: JSON.stringify({ folder_name: folderName })
+        });
+        
+        if (response.ok) {
+            alert(`Письмо перемещено в ${folderName === 'Trash' ? 'корзину' : 'архив'}`);
+            window.location.href = folderName === 'Trash' ? '/trash/' : '/archive/';
+        } else {
+            alert('Ошибка перемещения');
+        }
+    } catch (error) {
+        alert('Ошибка соединения');
+    }
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function formatDate(dateStr) {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('ru-RU', { 
+        day: 'numeric', 
+        month: 'long', 
+        year: 'numeric',
+        hour: '2-digit', 
+        minute: '2-digit' 
+    });
+}
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+loadEmail();
+</script>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "core/base.html" %}
+
+{% block title %}Входящие - FastMail{% endblock %}
+
+{% block active_inbox %}active{% endblock %}
+
+{% block content %}
+<div class="mailbox-container">
+    <div class="mailbox-header">
+        <h1>Входящие</h1>
+        <a href="/compose/" class="btn btn-primary">Написать письмо</a>
+    </div>
+    <div id="emailList" class="email-list">
+        <div class="loading">Загрузка...</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const FOLDER = 'Inbox';
+
+async function loadEmails() {
+    try {
+        const response = await fetch(`/api/emails/?folder=${FOLDER}`);
+        if (response.ok) {
+            const data = await response.json();
+            renderEmailList(data.results || data);
+        } else if (response.status === 401) {
+            window.location.href = '/login/';
+        } else {
+            document.getElementById('emailList').innerHTML = '<div class="empty">Ошибка загрузки</div>';
+        }
+    } catch (error) {
+        document.getElementById('emailList').innerHTML = '<div class="empty">Ошибка соединения</div>';
+    }
+}
+
+function renderEmailList(emails) {
+    const container = document.getElementById('emailList');
+    
+    if (!emails || emails.length === 0) {
+        container.innerHTML = '<div class="empty">Нет писем</div>';
+        return;
+    }
+    
+    container.innerHTML = emails.map(email => `
+        <div class="email-item ${email.is_read ? 'read' : 'unread'}" data-id="${email.id}">
+            <div class="email-sender">${escapeHtml(email.sender)}</div>
+            <div class="email-subject">${escapeHtml(email.subject)}</div>
+            <div class="email-date">${formatDate(email.created_at)}</div>
+        </div>
+    `).join('');
+    
+    // Добавляем обработчики кликов
+    document.querySelectorAll('.email-item').forEach(item => {
+        item.addEventListener('click', () => {
+            window.location.href = `/email/${item.dataset.id}/`;
+        });
+    });
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function formatDate(dateStr) {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+}
+
+loadEmails();
+</script>
+{% endblock %}

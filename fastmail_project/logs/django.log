@@ -1,0 +1,125 @@
+INFO 2026-03-26 00:20:12,161 autoreload Watching for file changes with StatReloader
+INFO 2026-03-26 00:20:24,593 basehttp "GET /login/ HTTP/1.1" 200 2581
+INFO 2026-03-26 00:20:24,624 basehttp - Broken pipe from ('127.0.0.1', 49686)
+INFO 2026-03-26 00:20:36,853 basehttp "POST /api/login/ HTTP/1.1" 200 78
+INFO 2026-03-26 00:20:36,887 basehttp - Broken pipe from ('127.0.0.1', 49746)
+INFO 2026-03-26 00:24:01,487 autoreload Watching for file changes with StatReloader
+INFO 2026-03-26 00:24:20,597 basehttp "GET / HTTP/1.1" 302 0
+WARNING 2026-03-26 00:24:20,646 log Not Found: /accounts/login/
+WARNING 2026-03-26 00:24:20,653 basehttp "GET /accounts/login/?next=/ HTTP/1.1" 404 4078
+WARNING 2026-03-26 00:24:20,730 log Not Found: /favicon.ico
+WARNING 2026-03-26 00:24:20,745 basehttp "GET /favicon.ico HTTP/1.1" 404 4059
+INFO 2026-03-26 00:24:57,224 basehttp "GET / HTTP/1.1" 302 0
+WARNING 2026-03-26 00:24:57,249 log Not Found: /accounts/login/
+WARNING 2026-03-26 00:24:57,251 basehttp "GET /accounts/login/?next=/ HTTP/1.1" 404 4078
+INFO 2026-03-26 00:27:05,468 autoreload D:\Dev\Artemis\Remember everything 0\fastmail_project\fastmail_project\settings.py changed, reloading.
+INFO 2026-03-26 00:27:06,145 autoreload Watching for file changes with StatReloader
+INFO 2026-03-26 00:27:26,784 autoreload Watching for file changes with StatReloader
+INFO 2026-03-26 00:27:36,467 basehttp "GET / HTTP/1.1" 302 0
+INFO 2026-03-26 00:27:36,503 basehttp "GET /login/?next=/ HTTP/1.1" 200 2581
+INFO 2026-03-26 00:27:36,527 basehttp - Broken pipe from ('127.0.0.1', 63044)
+INFO 2026-03-26 00:30:14,339 basehttp "GET / HTTP/1.1" 302 0
+INFO 2026-03-26 00:30:14,350 basehttp "GET /login/?next=/ HTTP/1.1" 200 2581
+INFO 2026-03-26 00:30:14,448 basehttp "GET /static/core/js/app.js HTTP/1.1" 200 1270
+INFO 2026-03-26 00:30:14,448 basehttp "GET /static/core/css/style.css HTTP/1.1" 200 6965
+INFO 2026-03-26 00:30:39,843 basehttp "POST /api/login/ HTTP/1.1" 200 78
+INFO 2026-03-26 00:30:39,868 basehttp "GET /inbox/ HTTP/1.1" 200 3343
+INFO 2026-03-26 00:30:39,907 basehttp "GET /api/emails/?folder=Inbox HTTP/1.1" 200 52
+INFO 2026-03-26 00:30:42,346 basehttp "GET /sent/ HTTP/1.1" 200 3267
+INFO 2026-03-26 00:30:42,387 basehttp "GET /api/emails/?folder=Sent HTTP/1.1" 200 52
+INFO 2026-03-26 00:30:56,196 basehttp "GET /compose/ HTTP/1.1" 200 3953
+INFO 2026-03-26 00:31:05,693 basehttp "GET /inbox/ HTTP/1.1" 200 3343
+INFO 2026-03-26 00:31:05,726 basehttp "GET /api/emails/?folder=Inbox HTTP/1.1" 200 52
+INFO 2026-03-26 00:31:06,801 basehttp "GET /sent/ HTTP/1.1" 200 3267
+INFO 2026-03-26 00:31:06,834 basehttp "GET /api/emails/?folder=Sent HTTP/1.1" 200 52
+INFO 2026-03-26 00:31:07,713 basehttp "GET /archive/ HTTP/1.1" 200 3153
+INFO 2026-03-26 00:31:07,752 basehttp "GET /api/emails/?folder=Archive HTTP/1.1" 200 52
+INFO 2026-03-26 00:31:09,102 basehttp "GET /trash/ HTTP/1.1" 200 3159
+INFO 2026-03-26 00:31:09,144 basehttp "GET /api/emails/?folder=Trash HTTP/1.1" 200 52
+INFO 2026-03-26 00:31:10,262 basehttp "GET /inbox/ HTTP/1.1" 200 3343
+INFO 2026-03-26 00:31:10,293 basehttp "GET /api/emails/?folder=Inbox HTTP/1.1" 200 52
+INFO 2026-03-26 00:39:15,403 autoreload D:\Dev\Artemis\Remember everything 0\fastmail_project\core\views.py changed, reloading.
+INFO 2026-03-26 00:39:16,101 autoreload Watching for file changes with StatReloader
+INFO 2026-03-26 00:39:58,917 autoreload D:\Dev\Artemis\Remember everything 0\fastmail_project\core\views.py changed, reloading.
+INFO 2026-03-26 00:39:59,686 autoreload Watching for file changes with StatReloader
+INFO 2026-03-26 00:40:36,335 autoreload D:\Dev\Artemis\Remember everything 0\fastmail_project\core\views.py changed, reloading.
+INFO 2026-03-26 00:40:37,000 autoreload Watching for file changes with StatReloader
+INFO 2026-03-26 00:41:08,405 autoreload D:\Dev\Artemis\Remember everything 0\fastmail_project\core\views.py changed, reloading.
+INFO 2026-03-26 00:41:09,117 autoreload Watching for file changes with StatReloader
+INFO 2026-03-26 00:41:57,120 autoreload D:\Dev\Artemis\Remember everything 0\fastmail_project\core\models.py changed, reloading.
+INFO 2026-03-26 00:41:57,806 autoreload Watching for file changes with StatReloader
+INFO 2026-03-26 00:42:42,611 autoreload D:\Dev\Artemis\Remember everything 0\fastmail_project\core\services.py changed, reloading.
+INFO 2026-03-26 00:42:43,306 autoreload Watching for file changes with StatReloader
+INFO 2026-03-26 00:50:17,449 basehttp "GET /login/ HTTP/1.1" 200 2581
+INFO 2026-03-26 00:50:17,476 basehttp - Broken pipe from ('127.0.0.1', 58316)
+INFO 2026-03-26 00:51:38,096 basehttp "GET / HTTP/1.1" 200 3343
+INFO 2026-03-26 00:51:38,156 basehttp "GET /static/core/css/style.css HTTP/1.1" 304 0
+INFO 2026-03-26 00:51:38,156 basehttp "GET /static/core/js/app.js HTTP/1.1" 304 0
+INFO 2026-03-26 00:51:38,176 basehttp "GET /api/emails/?folder=Inbox HTTP/1.1" 200 52
+INFO 2026-03-26 00:51:40,316 basehttp "GET /sent/ HTTP/1.1" 200 3267
+INFO 2026-03-26 00:51:40,352 basehttp "GET /api/emails/?folder=Sent HTTP/1.1" 200 52
+INFO 2026-03-26 00:51:43,011 basehttp "POST /api/logout/ HTTP/1.1" 200 15
+INFO 2026-03-26 00:51:43,028 basehttp "GET /login/ HTTP/1.1" 200 2581
+INFO 2026-03-26 00:51:53,570 basehttp "POST /api/login/ HTTP/1.1" 200 78
+INFO 2026-03-26 00:51:53,593 basehttp "GET /inbox/ HTTP/1.1" 200 3343
+INFO 2026-03-26 00:51:53,654 basehttp "GET /api/emails/?folder=Inbox HTTP/1.1" 200 52
+INFO 2026-03-26 00:52:00,234 basehttp "POST /api/logout/ HTTP/1.1" 200 15
+INFO 2026-03-26 00:52:00,258 basehttp "GET /login/ HTTP/1.1" 200 2581
+INFO 2026-03-26 00:52:05,491 basehttp "GET /register/ HTTP/1.1" 200 2888
+INFO 2026-03-26 00:52:35,213 basehttp "POST /api/register/ HTTP/1.1" 201 92
+INFO 2026-03-26 00:52:35,238 basehttp "GET /inbox/ HTTP/1.1" 200 3350
+INFO 2026-03-26 00:52:35,296 basehttp "GET /api/emails/?folder=Inbox HTTP/1.1" 200 52
+INFO 2026-03-26 00:52:41,626 basehttp "GET /compose/ HTTP/1.1" 200 3960
+INFO 2026-03-26 00:53:24,982 basehttp "POST /api/emails/ HTTP/1.1" 201 293
+INFO 2026-03-26 00:53:26,001 basehttp "GET /sent/ HTTP/1.1" 200 3274
+INFO 2026-03-26 00:53:26,041 basehttp "GET /api/emails/?folder=Sent HTTP/1.1" 200 345
+INFO 2026-03-26 00:53:30,758 basehttp "GET /inbox/ HTTP/1.1" 200 3350
+INFO 2026-03-26 00:53:30,796 basehttp "GET /api/emails/?folder=Inbox HTTP/1.1" 200 52
+INFO 2026-03-26 00:53:32,391 basehttp "GET /archive/ HTTP/1.1" 200 3160
+INFO 2026-03-26 00:53:32,434 basehttp "GET /api/emails/?folder=Archive HTTP/1.1" 200 52
+INFO 2026-03-26 00:53:33,535 basehttp "GET /trash/ HTTP/1.1" 200 3166
+INFO 2026-03-26 00:53:33,576 basehttp "GET /api/emails/?folder=Trash HTTP/1.1" 200 52
+INFO 2026-03-26 00:53:34,787 basehttp "GET /sent/ HTTP/1.1" 200 3274
+INFO 2026-03-26 00:53:34,825 basehttp "GET /api/emails/?folder=Sent HTTP/1.1" 200 345
+INFO 2026-03-26 00:53:36,111 basehttp "GET /email/1/ HTTP/1.1" 200 5792
+INFO 2026-03-26 00:53:36,143 basehttp "GET /api/emails/1/ HTTP/1.1" 200 293
+INFO 2026-03-26 00:53:38,971 basehttp "PATCH /api/emails/1/move/ HTTP/1.1" 200 296
+INFO 2026-03-26 00:53:40,571 basehttp "GET /archive/ HTTP/1.1" 200 3160
+INFO 2026-03-26 00:53:40,599 basehttp "GET /api/emails/?folder=Archive HTTP/1.1" 200 348
+INFO 2026-03-26 00:53:42,019 basehttp "GET /sent/ HTTP/1.1" 200 3274
+INFO 2026-03-26 00:53:42,059 basehttp "GET /api/emails/?folder=Sent HTTP/1.1" 200 52
+INFO 2026-03-26 00:53:42,938 basehttp "GET /archive/ HTTP/1.1" 200 3160
+INFO 2026-03-26 00:53:42,971 basehttp "GET /api/emails/?folder=Archive HTTP/1.1" 200 348
+INFO 2026-03-26 00:53:44,312 basehttp "GET /email/1/ HTTP/1.1" 200 5792
+INFO 2026-03-26 00:53:44,353 basehttp "GET /api/emails/1/ HTTP/1.1" 200 296
+INFO 2026-03-26 00:53:47,945 basehttp "GET /sent/ HTTP/1.1" 200 3274
+INFO 2026-03-26 00:53:47,979 basehttp "GET /api/emails/?folder=Sent HTTP/1.1" 200 52
+INFO 2026-03-26 00:53:49,103 basehttp "GET /archive/ HTTP/1.1" 200 3160
+INFO 2026-03-26 00:53:49,141 basehttp "GET /api/emails/?folder=Archive HTTP/1.1" 200 348
+INFO 2026-03-26 00:53:50,287 basehttp "GET /email/1/ HTTP/1.1" 200 5792
+INFO 2026-03-26 00:53:50,319 basehttp "GET /api/emails/1/ HTTP/1.1" 200 296
+INFO 2026-03-26 00:53:51,369 basehttp "PATCH /api/emails/1/move/ HTTP/1.1" 200 296
+INFO 2026-03-26 00:53:52,588 basehttp "GET /archive/ HTTP/1.1" 200 3160
+INFO 2026-03-26 00:53:52,627 basehttp "GET /api/emails/?folder=Archive HTTP/1.1" 200 348
+INFO 2026-03-26 00:53:54,845 basehttp "GET /email/1/ HTTP/1.1" 200 5792
+INFO 2026-03-26 00:53:54,878 basehttp "GET /api/emails/1/ HTTP/1.1" 200 296
+INFO 2026-03-26 00:53:55,816 basehttp "PATCH /api/emails/1/move/ HTTP/1.1" 200 294
+INFO 2026-03-26 00:53:57,074 basehttp "GET /trash/ HTTP/1.1" 200 3166
+INFO 2026-03-26 00:53:57,103 basehttp "GET /api/emails/?folder=Trash HTTP/1.1" 200 346
+INFO 2026-03-26 00:53:59,069 basehttp "GET /archive/ HTTP/1.1" 200 3160
+INFO 2026-03-26 00:53:59,110 basehttp "GET /api/emails/?folder=Archive HTTP/1.1" 200 52
+INFO 2026-03-26 00:54:00,242 basehttp "GET /trash/ HTTP/1.1" 200 3166
+INFO 2026-03-26 00:54:00,287 basehttp "GET /api/emails/?folder=Trash HTTP/1.1" 200 346
+INFO 2026-03-26 00:54:01,702 basehttp "POST /api/logout/ HTTP/1.1" 200 15
+INFO 2026-03-26 00:54:01,716 basehttp "GET /login/ HTTP/1.1" 200 2581
+INFO 2026-03-26 00:54:13,338 basehttp "POST /api/login/ HTTP/1.1" 200 78
+INFO 2026-03-26 00:54:13,365 basehttp "GET /inbox/ HTTP/1.1" 200 3343
+INFO 2026-03-26 00:54:13,434 basehttp "GET /api/emails/?folder=Inbox HTTP/1.1" 200 347
+INFO 2026-03-26 00:54:21,326 basehttp "GET /email/2/ HTTP/1.1" 200 5785
+INFO 2026-03-26 00:54:21,384 basehttp "GET /api/emails/2/ HTTP/1.1" 200 294
+INFO 2026-03-26 01:55:38,490 basehttp "GET / HTTP/1.1" 200 3343
+INFO 2026-03-26 01:55:38,552 basehttp "GET /static/core/css/style.css HTTP/1.1" 304 0
+INFO 2026-03-26 01:55:38,552 basehttp "GET /static/core/js/app.js HTTP/1.1" 304 0
+INFO 2026-03-26 01:55:38,579 basehttp "GET /api/emails/?folder=Inbox HTTP/1.1" 200 346
+INFO 2026-03-26 01:55:48,167 basehttp "POST /api/logout/ HTTP/1.1" 200 15
+INFO 2026-03-26 01:55:48,186 basehttp "GET /login/ HTTP/1.1" 200 2581
