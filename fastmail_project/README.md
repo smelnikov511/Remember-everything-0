@@ -34,8 +34,7 @@
 ### 1. Активация виртуального окружения
 
 ```bash
-cd "fastmail_project"
-..\venv\Scripts\activate
+scource venv\Scripts\activate
 ```
 
 ### 2. Запуск сервера разработки

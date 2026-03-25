@@ -406,8 +406,3 @@ python manage.py dumpdata core auth --format json > backup.json
 # Импорт из дампа
 python manage.py loaddata backup.json
 ```
-
----
-
-**Документ создан для проекта FastMail**
-Версия: 1.0 | Дата: 2026-03-25
